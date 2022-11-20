@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+body{
+    margin: auto;
+}
+header{
+    width: 100vw;
+    height: 10vh;
+    background-color: #F5F5F6;
+    display: flex;
+}
+.image{
+width: 9vw;
+height: 6vh;
+margin-left: 11vw;
+margin-top: 2vh;
+}
+.buttons{
+    margin-left: 8vw;
+}
+.head-buttons{
+border: 0;
+background: none;
+padding-right: 1vw;
+padding-top: 4vh;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 13px;
+letter-spacing: 0.06em;
+color: #959BA4;
+}
+.head-buttons:hover{
+    color:black;
+}
+.sign{
+    margin-top: 2vh;
+    margin-left: 8vw;
+}
+.sign-in{
+    
+border: 0;
+border-radius: 5px;
+width: 5vw;
+height: 6vh;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 600;
+font-size: 11px;
+line-height: 13px;
+letter-spacing: 0.06em;
+color: #000000;
+background-color: white;
+}
+.sign-in:hover{
+    background-color:darkgrey;
+}
