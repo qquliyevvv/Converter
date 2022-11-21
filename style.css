@@ -4,11 +4,22 @@ body {
     margin: auto;
 }
 
+@media only screen and (min-width: 850px ){
+    header {
+        width: 100vw;
+        height: 20vh;
+        background-color: #F5F5F6;
+        display: flex;
+        }   
+    }
+
+@media only screen and (min-width: 1125px){
 header {
     width: 100vw;
     height: 10vh;
     background-color: #F5F5F6;
     display: flex;
+}
 }
 
 .image {
@@ -44,6 +55,7 @@ header {
 .sign {
     margin-top: 2vh;
     margin-left: 8vw;
+    margin-right: 15px;
 }
 
 .sign-in {
@@ -98,12 +110,22 @@ th {
     padding: 1vh 2vw;
     margin: 0;
 }
+@media only screen and (min-width: 850px){
 
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+    aside{
+        margin-bottom: 10vh;
+    }
+}
+@media only screen and (min-width: 1125px){
 main {
     display: flex;
     flex-direction: row;
 }
-
+}
 section {
     width: 40vw;
 }
