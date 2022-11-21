@@ -176,17 +176,21 @@ main {
     main {
         display: flex;
         flex-direction: column;
-        margin-left: 15vw;
+        margin-left: 8vw;
+    }
+    .text-block{
+        width: 44vw;
+        max-width: 200px;
     }
     .image-mobile{
         display: block;
-        width: 9vw;
-        height: 6vh;
+        width: 11vw;
+        height: 8vh;
         margin-left: 38vw;
         margin-top: 2vh;
     }
     .header1{
-        margin-left: 25vw;
+        margin-left: 22vw;
     }
     .sign{
         margin-left: 30vw;
