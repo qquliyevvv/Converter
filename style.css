@@ -2,7 +2,10 @@
 body {
     margin: auto;
 }
-
+.menu-button{
+    display: flex;
+    flex-direction: row;
+}
 .image {
     width: 9vw;
     height: 6vh;
@@ -36,14 +39,15 @@ body {
 .sign {
     margin-top: 2vh;
     margin-left: 8vw;
-    margin-right: 15px;
+    margin-right: 4vw;
+    width: 20px;
+
 }
 
 .sign-in {
     cursor: pointer;
     border: 0;
     border-radius: 5px;
-    width: 5vw;
     height: 6vh;
     font-family: 'Roboto';
     font-style: normal;
@@ -126,7 +130,6 @@ outline: none;
 .text:hover{
     background-color: silver;
 }
-@media screen and (max-width: 2000px){
 header {
     width: 100vw;
     height: 10vh;
@@ -137,26 +140,98 @@ main {
     display: flex;
     flex-direction: row;
 }
+.options{
+    display: none;
 }
-@media  screen and (min-width: 851px) and (max-width: 1124px ){
+.options-2{
+    display: none;
+}
+.image-mobile{
+    display: none;
+}
+@media  screen and (min-width: 851px) and (max-width: 1187px ){
+    .image{
+        width: 9vw;
+        height: 15vh;
+    }
     header {
         width: 100vw;
-        height: 21vh;
         background-color: #F5F5F6;
         display: flex;
+        height: 21vh;
     }
     main {
         display: flex;
         flex-direction: row;
+    }
+    .sign{
+        margin-left: 6vw;
     }  
+    .sign-in{
+        padding: 0;
+        font-size: 9px;
+    }
 }
 @media only screen and (min-width: 375px) and (max-width: 850px){
     main {
         display: flex;
         flex-direction: column;
+        margin-left: 10vw;
+    }
+    .image-mobile{
+        display: block;
+        width: 9vw;
+        height: 6vh;
+        margin-left: 38vw;
+        margin-top: 2vh;
+    }
+    .header1{
+        margin-left: 25vw;
+    }
+    .sign{
+        margin-left: 30vw;
+        margin-right: 0;
     }
     aside{
         margin-bottom: 10vh;
     }
+    .options{
+        display: block;
+        background: none;
+        border: 0;
+        width: 10px;
+        padding: 4px;
+    }
+    .options-2{
+        display: none;
+        background: none;
+        border: 0;
+        width: 10px;
+        padding: 5px;
+    }
+    .buttons{
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        margin-left: -4px;
+        margin-top: 3px;
+    }
+    .head-buttons{
+        font-size: 6px;
+        padding: 5px;
+    }
+    .menu-button{
+        display: flex;
+        flex-direction: column;
+        width: 10px;
+    }
+    .menu-image-1{
+        width:20px;
+        height: 20px;
+    }
+    .menu-image-2{
+        width: 20px;
+        height: 15px;
+    }
 }
-
