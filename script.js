@@ -44,12 +44,12 @@ function myfunction2() {
 }
 options2.addEventListener('click', myfunction2);
 function firstvals(){
-    lusd.style.background = 'darkviolet';
-    razn.style.background = 'darkviolet';
-    lusd.style.color = 'white';
-    razn.style.color = 'white';   
-    value1=lusd.innerHTML;
-    value2=razn.innerHTML;
+    lrub.style.background = 'darkviolet';
+    rusd.style.background = 'darkviolet';
+    lrub.style.color = 'white';
+    rusd.style.color = 'white';   
+    value1=lrub.innerHTML;
+    value2=rusd.innerHTML;
     convert(value1, value2)
 }
 firstvals();
