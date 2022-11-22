@@ -229,7 +229,7 @@ main {
         margin-left: -4px;
         margin-top: 3px;
         background-color: darkmagenta;
-        width: 20vw;
+        width: 85px;
     }
     .head-buttons{
         font-size: 9px;
@@ -241,11 +241,13 @@ main {
         width: 10px;
     }
     .menu-image-1{
-        width:20px;
-        height: 20px;
+        width:40px;
+        height:40px;
+        padding: 5px 0 0 5px;
     }
     .menu-image-2{
-        width: 20px;
-        height: 15px;
+        width: 30px;
+        height: 25px;
+        padding: 8px 0 0 5px;
     }
 }
