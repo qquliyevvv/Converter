@@ -50,7 +50,9 @@ function firstvals(){
     rusd.style.color = 'white';   
     value1=lrub.innerHTML;
     value2=rusd.innerHTML;
-    convert(value1, value2)
+    convert1(value1, value2)
+    convert2(value1, value2)
+
 }
 firstvals();
 function lcolordefaulter(){
@@ -78,38 +80,59 @@ leftable.addEventListener('click', (event) => {
   value1 = event.target.innerHTML;
   event.target.style.background = 'darkviolet';
   event.target.style.color = 'white';
-  convert(value1, value2)
+  convert2(value1, value2);
 })
 rightable.addEventListener('click', (event) => {
   rcolordefaulter()
   value2 = event.target.innerHTML;
   event.target.style.background = 'darkviolet';
   event.target.style.color = 'white';
-  convert(value1, value2)
+  convert1(value1, value2);
 })
-function convert(val1, val2) {
+function convert1(val1, val2) {
   fetch(`https://api.exchangerate.host/latest?base=${val1}&symbols=${val2}`)
     .then(response => response.json())
     .then(data => {
       console.log(val1);
       console.log(data.rates[val2]);
-      p1.innerHTML=`1 ${val1}=${data.rates[val2]} ${val2}`;
+      let dataRatesVal1 = 1 / data.rates[val2]
+      p1.innerHTML=`1 ${val1}=${ parseFloat(data.rates[val2].toFixed(4))} ${val2}`;
+      p2.innerHTML=`1 ${val2}=${ parseFloat(dataRatesVal1.toFixed(4))} ${val1}`
       koeficent = data.rates[val2];
-    })
+      console.log(input1.value);
+      console.log(koeficent);
+      input2.value = parseFloat((parseFloat(input1.value) * koeficent).toFixed(4));
+      // if(input2.value==="0.0000" || input1.value === "0.0000"){input2.value = "";input1.value = "";}
+    })}
+
+ function convert2(val1, val2) {
     fetch(`https://api.exchangerate.host/latest?base=${val2}&symbols=${val1}`)
     .then(response => response.json())
     .then(data => {
       console.log(val2);
       console.log(data.rates[val1]);
-      p2.innerHTML=`1 ${val2}=${data.rates[val1]} ${val1}`
+      let dataRatesVal2 = 1 / data.rates[val1]
+      p2.innerHTML=`1 ${val2}=${ parseFloat(data.rates[val1].toFixed(4))} ${val1}`
+      p1.innerHTML=`1 ${val1}=${ parseFloat(dataRatesVal2.toFixed(4))} ${val2}`;
       koeficent2 = data.rates[val1];
+      input1.value = parseFloat((parseFloat(input2.value) * koeficent2).toFixed(4));
+      // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
     })
 }
 input1.addEventListener('keyup',()=>{
-  input2.value = input1.value * koeficent;
+  input2.value = numberWithSpaces (parseFloat(parseFloat(input1.value) * koeficent).toFixed(4));
+  input1.value = numberWithSpaces(input1.value);
+  // numberWithSpaces (input1)
+  // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
 })
 input2.addEventListener('keyup',()=>{
-  input1.value = input2.value * koeficent2;
+  input1.value = numberWithSpaces (parseFloat(parseFloat(input2.value) * koeficent2).toFixed(4));
+  input2.value = numberWithSpaces(input2.value)
+  // numberWithSpaces (input2)
+  // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
 })
-
-
+function numberWithSpaces(x) {
+  var parts = x.toString().split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return parts.join(".");
+}

@@ -40,7 +40,7 @@
                 </thead>
             </table>
             <div class="text-block">
-                <input class="text input1"></input>
+                <input class="text input1" onkeyup="this.value = this.value.replace(/[^0-9,.]/g, '').replace(/^00+/, '0').replace(',', '.').replace('.,', '.').replace(',.', '.').replace(',,', '.').replace('..', '.');"></input>
                 <div class="p1"></div>
             </div>
         </section>
@@ -56,14 +56,12 @@
                     </thead>
                 </table>
                 <div class="text-block">
-                    <input class="text input2"></input>
+                    <input class="text input2" onkeyup="this.value = this.value.replace(/[^0-9,.]/g, '').replace(/^00+/, '0').replace(',', '.').replace('.,', '.').replace(',.', '.').replace(',,', '.').replace('..', '.');"></input>
                     <div class="p2"></div>
                 </div>
         </aside>
     </main>
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/autonumeric@4.5.4"></script>
-<script src="https://unpkg.com/autonumeric"></script>
     <script src="./script.js"></script>
 </html>
