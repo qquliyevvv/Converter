@@ -120,13 +120,13 @@ function convert1(val1, val2) {
     })
 }
 input1.addEventListener('keyup',()=>{
-  input2.value = numberWithSpaces (parseFloat(parseFloat(input1.value) * koeficent).toFixed(4));
+  input2.value = numberWithSpaces (parseFloat(input1.value * koeficent).toFixed(4));
   input1.value = numberWithSpaces(input1.value);
   // numberWithSpaces (input1)
   // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
 })
 input2.addEventListener('keyup',()=>{
-  input1.value = numberWithSpaces (parseFloat(parseFloat(input2.value) * koeficent2).toFixed(4));
+  input1.value = numberWithSpaces (parseFloat(input2.value * koeficent2).toFixed(4));
   input2.value = numberWithSpaces(input2.value)
   // numberWithSpaces (input2)
   // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
