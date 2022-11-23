@@ -52,7 +52,14 @@ margin-top: 7vh;
     width: 20px;
 
 }
-
+.rub{
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.azn{
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
 .sign-in {
     cursor: pointer;
     border: 0;
@@ -94,7 +101,6 @@ margin-top: 7vh;
 table {
     border-spacing: 0px;
 }
-
 th {
     border: 1px solid gray;
     padding: 1vh 2vw;
@@ -120,6 +126,7 @@ aside {
     padding: 15px;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
 
 }
 .text{
@@ -178,12 +185,27 @@ main {
         padding: 0;
         font-size: 9px;
     }
+    .options{
+        display: none;
+    }
+    .options2{
+        display: none;
+    }
+    .menu-image-1{
+        display: none;
+    }
+    .menu-image-2{
+        display: none;
+    }
 }
 @media only screen and (min-width: 375px) and (max-width: 850px){
     main {
         display: flex;
         flex-direction: column;
         margin-left: 8vw;
+    }
+    header{
+        height: 11vh;
     }
     .text-block{
         width: 44vw;
@@ -195,6 +217,9 @@ main {
         height: 8vh;
         margin-left: 38vw;
         margin-top: 2vh;
+    }
+    .image{
+        display: none;
     }
     .header1{
         margin-left: 22vw;
@@ -212,14 +237,12 @@ main {
         background: none;
         border: 0;
         width: 10px;
-        padding: 4px;
     }
     .options-2{
         display: none;
         background: none;
         border: 0;
         width: 10px;
-        padding: 5px;
     }
     .buttons{
         display: none;
@@ -243,7 +266,6 @@ main {
     .menu-image-1{
         width:40px;
         height:40px;
-        padding: 5px 0 0 5px;
     }
     .menu-image-2{
         width: 30px;
