@@ -6,6 +6,7 @@ let image2=document.querySelector('.image-mobile')
 let options2 = document.querySelector('.options-2');
 const input1= document.querySelector('.input1');
 const input2= document.querySelector('.input2');
+const input = document.querySelectorAll('input');
 const alltable = document.querySelectorAll('.alltable');
 const leftable = document.querySelector('.left-table');
 const rightable = document.querySelector('.right-table');
@@ -22,8 +23,8 @@ const reur = document.querySelector('.reur');
 const razn = document.querySelector('.razn');
 let koeficent = 0;
 let koeficent2=0;
-let value1;
-let value2;
+let value1=lrub.innerHTML;
+let value2=rusd.innerHTML;
 function menu(x) {
   if (x.matches) {
     options.style.display = "block";
@@ -44,18 +45,40 @@ function myfunction2() {
   options2.style.display = "none";
 }
 options2.addEventListener('click', myfunction2);
-function firstvals(){
+function firstvals(val1,val2){
+    input1.focus();
+    input2.value='';
     lrub.style.background = 'darkviolet';
     rusd.style.background = 'darkviolet';
     lrub.style.color = 'white';
     rusd.style.color = 'white';   
-    value1=lrub.innerHTML;
-    value2=rusd.innerHTML;
-    convert1(value1, value2)
-    convert2(value1, value2)
+    fetch(`https://api.exchangerate.host/latest?base=${val1}&symbols=${val2}`)
+    .then(response => response.json())
+    .then(data => {
+      let dataRatesVal1 = 1 / data.rates[val2]
+      koeficent = data.rates[val2];
+      p1.innerHTML=`1 ${val1}=${ parseFloat(data.rates[val2].toFixed(4))} ${val2}`;
+      p2.innerHTML=`1 ${val2}=${ parseFloat(dataRatesVal1.toFixed(4))} ${val1}`})
+      input1.addEventListener('keyup',()=>{
+        input2.value = parseFloat(input1.value * koeficent).toFixed(4);
+      })
+      fetch(`https://api.exchangerate.host/latest?base=${val2}&symbols=${val1}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(val2);
+        console.log(data.rates[val1]);
+        let dataRatesVal2 = 1 / data.rates[val1]
+        p2.innerHTML=`1 ${val2}=${ parseFloat(data.rates[val1].toFixed(4))} ${val1}`
+        p1.innerHTML=`1 ${val1}=${ parseFloat(dataRatesVal2.toFixed(4))} ${val2}`;
+        koeficent2 = data.rates[val1];
 
+        input2.addEventListener('keyup',()=>{
+          input1.value = parseFloat(input2.value * koeficent2).toFixed(4);
+          // numberWithSpaces (input2)
+          // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
+        })})
 }
-firstvals();
+firstvals(value1,value2);
 function lcolordefaulter(){
   lusd.style.background = 'white';
   lusd.style.color = 'black';
