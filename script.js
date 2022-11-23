@@ -101,7 +101,7 @@ function convert1(val1, val2) {
       koeficent = data.rates[val2];
       console.log(input1.value);
       console.log(koeficent);
-      input2.value = parseFloat(input1.value * koeficent).toFixed(4);
+      input2.value = parseFloat((input1.value * koeficent).toFixed(4));
       // if(input2.value==="0.0000" || input1.value === "0.0000"){input2.value = "";input1.value = "";}
     })}
 
@@ -115,17 +115,17 @@ function convert1(val1, val2) {
       p2.innerHTML=`1 ${val2}=${ parseFloat(data.rates[val1].toFixed(4))} ${val1}`
       p1.innerHTML=`1 ${val1}=${ parseFloat(dataRatesVal2.toFixed(4))} ${val2}`;
       koeficent2 = data.rates[val1];
-      input1.value = parseFloat(input2.value * koeficent2).toFixed(4);
+      input1.value = parseFloat((input2.value * koeficent2).toFixed(4));
       // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
     })
 }
 input1.addEventListener('keyup',()=>{
-  input2.value = parseFloat(input1.value * koeficent).toFixed(4);
+  input2.value = parseFloat((input1.value * koeficent).toFixed(4));
   // numberWithSpaces (input1)
   // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
 })
 input2.addEventListener('keyup',()=>{
-  input1.value = parseFloat(input2.value * koeficent2).toFixed(4);
+  input1.value = parseFloat((input2.value * koeficent2).toFixed(4));
   // numberWithSpaces (input2)
   // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
 })
