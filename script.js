@@ -126,6 +126,7 @@ function convert1(val1, val2) {
       console.log(input1.value);
       console.log(koeficent);
       input2.value = parseFloat(input1.value * koeficent).toFixed(4);
+      input2.value = parseFloat(input2.value * 1)
       // if(input2.value==="0.0000" || input1.value === "0.0000"){input2.value = "";input1.value = "";}
     })}
 
@@ -140,21 +141,48 @@ function convert1(val1, val2) {
       p1.innerHTML=`1 ${val1}=${ parseFloat(dataRatesVal2.toFixed(4))} ${val2}`;
       koeficent2 = data.rates[val1];
       input1.value = parseFloat(input2.value * koeficent2).toFixed(4);
-      // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
+      input1.value = parseFloat(input1.value * 1)
     })
 }
 input1.addEventListener('keyup',()=>{
+  if(input1.value.length > 1 && input1.value[0] == 0 && input1.value.split(".")[0].length == 2){
+    input1.value = input1.value.split("").pop().toString();
+  }
+  else{
   input2.value = parseFloat(input1.value * koeficent).toFixed(4);
-  // numberWithSpaces (input1)
-  // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
+  input2.value = parseFloat(input2.value * 1)}
 })
 input2.addEventListener('keyup',()=>{
+  if(input2.value.length > 1 && input2.value[0] == 0 && input2.value.split(".")[0].length == 2){
+    input2.value = input2.value.split("").pop().toString();
+  }
+  else{
   input1.value = parseFloat(input2.value * koeficent2).toFixed(4);
-  // numberWithSpaces (input2)
-  // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
+  input1.value = parseFloat(input1.value * 1)}
 })
 function numberWithSpaces(x) {
   var parts = x.toString().split(".");
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   return parts.join(".");
 }
+function mask(a){
+    if (a.includes(" ")){ a = a.split(" ").join("")}
+    if(a.split("").findIndex(i=> i== ".") == -1){
+        let arr = a.toString().split("");
+        for(let i = arr.length-4;i >=0; i = i - 3){
+            arr.splice(i+1,0," ");
+        }
+       if(arr.join("") != 'NaN') return arr.join("");
+       else return null
+    }
+   
+    else {
+    let arr = a.split("");
+    let k = arr.findIndex(i => i==".")
+    for(let i = k - 4;i >=0; i = i - 3){
+        arr.splice(i+1,0," ");
+    }
+    if(arr.join("") != 'NaN') return arr.join("");
+    else return null;
+}
+ }
