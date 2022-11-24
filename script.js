@@ -74,6 +74,7 @@ function firstvals(val1, val2) {
       koeficent2 = data.rates[val1];
       input2.addEventListener('keyup', () => {
         input1.value = parseFloat(input2.value.split(' ').join('') * koeficent2).toFixed(4);
+        input1.value = numberWithSpaces(parseFloat(input1.value.split(' ').join('') * 1))
         // numberWithSpaces (input2)
         // if(input2.value==="0.0000" || input1.value === "0.0000"){input1.value = "";input2.value = "";}
       })
