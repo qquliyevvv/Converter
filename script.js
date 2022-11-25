@@ -151,8 +151,10 @@ input1.addEventListener('keyup', () => {
   }
   else {
     input2.value = parseFloat(input1.value.split(' ').join('') * koeficent).toFixed(4);
-    input2.value = numberWithSpaces(parseFloat(input2.value.split(' ').join('') * 1))
-    input1.value = numberWithSpaces(parseFloat(input1.value.split(' ').join('') * 1))
+    // input2.value = numberWithSpaces(parseFloat(input2.value.split(' ').join('') * 1))
+    // input1.value = numberWithSpaces(parseFloat(input1.value.split(' ').join('') * 1))
+    input2.value = numberWithSpaces(input2.value.split(' ').join(''))
+    input1.value = numberWithSpaces(input1.value.split(' ').join(''))
   }
 })
 input2.addEventListener('keyup', () => {
@@ -161,8 +163,10 @@ input2.addEventListener('keyup', () => {
   }
   else {
     input1.value = parseFloat(input2.value.split(' ').join('') * koeficent2).toFixed(4);
-    input1.value = numberWithSpaces(parseFloat(input1.value.split(' ').join('') * 1))
-    input2.value = numberWithSpaces(parseFloat(input2.value.split(' ').join('') * 1))
+    // input1.value = numberWithSpaces(parseFloat(input1.value.split(' ').join('') * 1))
+    // input2.value = numberWithSpaces(parseFloat(input2.value.split(' ').join('') * 1))
+    input2.value = numberWithSpaces(input2.value.split(' ').join(''))
+    input1.value = numberWithSpaces(input1.value.split(' ').join(''))
 
   }
 })
